@@ -1,0 +1,28 @@
+{
+  "updates": [
+    {
+      "changelog": {
+        "en": "Update firmware to version 1.0.8",
+        "it": "Aggiornamento firmware alla versione 1.0.8"
+      },
+      "device": {
+        "manufacturerName": [
+          "SONOFF"
+        ],
+        "productId": [
+          "ZBMINIR2"
+        ]
+      },
+      "files": [
+        {
+          "fileVersion": 4104,
+          "imageType": 8,
+          "manufacturerCode": 4742,
+          "size": 277180,
+          "name": "zbminir2_v1.0.8.ota",
+          "integrity": "sha512:051912851dffed4b49d3caece8d67b0fec9987dcbdf4d6db45c4e23f4ea0c9be867491758af12f153bc9672d4205129a9270be79e781d150734be295c44971bf"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "updates": [
+    {
+      "changelog": {
+        "en": "Update firmware to version 1.4.4",
+        "it": "Aggiornamento firmware alla versione 1.4.4"
+      },
+      "device": {
+        "manufacturerName": [
+          "SONOFF"
+        ],
+        "productId": [
+          "TRVZB"
+        ]
+      },
+      "files": [
+        {
+          "fileVersion": 5124,
+          "imageType": 8199,
+          "manufacturerCode": 4742,
+          "size": 332220,
+          "name": "trvzb_v1.4.4.ota",
+          "integrity": "sha512:c7640e2a238ab9807b77d36abc4b9e58d64c99a8fe8ac8d6246f48760bc85a2aec5c446630c94dd2e85fe3fe088011eccc992e543183b74ede7e061ae6f324b3"
+        }
+      ]
+    }
+  ]
+}

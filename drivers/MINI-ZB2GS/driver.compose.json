@@ -57,5 +57,7 @@
       }
     }
   },
-  "$extends": ["defaults"]
+  "$extends": [
+    "defaults"
+  ]
 }

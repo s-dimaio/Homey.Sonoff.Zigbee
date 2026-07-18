@@ -164,7 +164,7 @@ class SonoffZBMINIR2 extends SonoffBase {
             if (data.TurboMode !== undefined) settingsData.TurboMode = data.TurboMode === 20;
             if (data.network_led !== undefined) settingsData.network_led = Boolean(data.network_led);
             if (data.power_on_delay_state !== undefined) settingsData.power_on_delay_state = Boolean(data.power_on_delay_state);
-            if (data.power_on_delay_time !== undefined) settingsData.power_on_delay_time = data.power_on_delay_time / 2;
+            if (data.power_on_delay_time !== undefined) settingsData.power_on_delay_time = Math.max(0, Math.min(3599.5, data.power_on_delay_time / 2));
             if (data.switch_mode !== undefined) settingsData.switch_mode = String(data.switch_mode);
             if (data.detach_mode !== undefined) settingsData.detach_mode = newDetachMode;
 

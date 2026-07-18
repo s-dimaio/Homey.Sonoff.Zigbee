@@ -76,6 +76,12 @@ class SonoffMINIZB2GSL extends SonoffBase {
             this.error(`CRITICAL: Endpoint ${ep} NOT FOUND on zclNode!`);
         }
 
+        // Clean up stale capability 'onoff.l2' from older driver versions (root device only)
+        if (ep === 1 && this.hasCapability('onoff.l2')) {
+            this.log('Removing stale capability: onoff.l2');
+            this.removeCapability('onoff.l2').catch(this.error);
+        }
+
         if (this.hasCapability('onoff')) {
             this.log(`Registering onoff capability for endpoint ${ep}`);
             // registerCapability sets up attribute report listeners (device -> UI) and proper Zigbee command handling.
@@ -473,10 +479,11 @@ class SonoffMINIZB2GSL extends SonoffBase {
                 }
             });
             sonoffCluster.on('attr.power_on_delay_time', (value) => {
-                // Raw value is in 0.5s units (scale: 2); convert to seconds for UI
+                // Raw value is in 0.5s units (scale: 2); convert to seconds for UI, clamped to [0, 3599.5]
                 const valSec = value / 2;
-                if (this.getSetting('power_on_delay_time') !== valSec) {
-                    this.setSettings({ power_on_delay_time: valSec }).catch(this.error);
+                const clampedVal = Math.max(0, Math.min(3599.5, valSec));
+                if (this.getSetting('power_on_delay_time') !== clampedVal) {
+                    this.setSettings({ power_on_delay_time: clampedVal }).catch(this.error);
                 }
             });
         }
@@ -541,7 +548,7 @@ class SonoffMINIZB2GSL extends SonoffBase {
                     const settingsData = {};
                     if (attrName === 'switch_mode') settingsData.switch_mode = String(data.switch_mode);
                     else if (attrName === 'power_on_delay_state') settingsData.power_on_delay_state = Boolean(data.power_on_delay_state);
-                    else if (attrName === 'power_on_delay_time') settingsData.power_on_delay_time = data.power_on_delay_time / 2;
+                    else if (attrName === 'power_on_delay_time') settingsData.power_on_delay_time = Math.max(0, Math.min(3599.5, data.power_on_delay_time / 2));
                     await this.setSettings(settingsData);
                 }
             } catch (e) {

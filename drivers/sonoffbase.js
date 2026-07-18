@@ -12,14 +12,44 @@ class SonoffBase extends ZigBeeDevice {
 
 	lastPollAttributes = null;
 
-	async onNodeInit({zclNode}, options) {
-		this.log("NodeInit SonoffBase");
-		options = options || {};
-
-		if (process.env.DEBUG === "1") {
-			this.enableDebug();
+	async onInit() {
+		// Self-healing: restore any capabilities declared in the manifest that are missing from the device instance
+		let manifestCapabilities = this.driver.manifest?.capabilities;
+		if (!manifestCapabilities) {
+			const Homey = require('homey');
+			const driverManifest = Homey.manifest?.drivers?.find(d => d.id === this.driver.id);
+			manifestCapabilities = driverManifest?.capabilities || [];
 		}
-		this.printNode();
+
+		this.log(`[Self-healing Debug] Device: ${this.getName()}, Manifest capabilities:`, manifestCapabilities, 'Device capabilities:', this.getCapabilities());
+		for (const cap of manifestCapabilities) {
+			if (!this.hasCapability(cap)) {
+				this.log(`[Self-healing] Restoring missing capability: ${cap}`);
+				this.addCapability(cap).catch(this.error);
+			}
+		}
+
+		// Self-healing class migration for devices with 'migrate_to_socket' capability
+		if (this.hasCapability('migrate_to_socket')) {
+			this.log(`[Self-healing] Migrating ${this.getName()} class to socket...`);
+			this.setClass('socket')
+				.then(() => {
+					this.log(`[Self-healing] Successfully migrated ${this.getName()} to socket. Removing migrate_to_socket capability...`);
+					return this.removeCapability('migrate_to_socket');
+				})
+				.catch(this.error);
+		}
+
+		await super.onInit();
+	}
+
+	async onNodeInit({zclNode}, options) {
+		if (process.env.DEBUG === "1") {
+			this.log("NodeInit SonoffBase");
+			this.enableDebug();
+			this.printNode();
+		}
+		options = options || {};
 
 		if (options.noAttribCheck!=true) {
 			if ("powerConfiguration" in zclNode.endpoints[1].clusters) {
@@ -38,24 +68,40 @@ class SonoffBase extends ZigBeeDevice {
 			}
 		}
 
+		// Read software version only for mains-powered (non-sleepy) devices.
+		// Battery-powered devices are asleep at this point and would not respond.
+		if ("basic" in zclNode.endpoints[1].clusters && this.node.receiveWhenIdle) {
+			this.readAttribute(CLUSTER.BASIC, 'swBuildId', (value) => {
+				this.log("Software version read:", value?.swBuildId);
+			});
+		}
+
 	}
 
 	async checkAttributes() {
 	}
 
 	async checkBattery() {
-		this.log("Check battery");
+		if (process.env.DEBUG === "1") {
+			this.log("Check battery");
+		}
 		
         try {
-            this.log("Ask battery");
+			if (process.env.DEBUG === "1") {
+				this.log("Ask battery");
+			}
 		    this.zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
 				.readAttributes("batteryPercentageRemaining")
 				.then((value) => {			
-					this.log("BATTERY", value);
+					if (process.env.DEBUG === "1") {
+						this.log("BATTERY", value);
+					}
 					this.setCapabilityValue('measure_battery', value.batteryPercentageRemaining / 2).catch(this.error);
 				})
 				.catch(() => {			
-					this.log("Error BATTERY");
+					if (process.env.DEBUG === "1") {
+						this.log("Error BATTERY");
+					}
 				});
         } catch (error) {
             this.error('Kunde inte hämta batteristatus', error);
@@ -68,22 +114,43 @@ class SonoffBase extends ZigBeeDevice {
 		this.readAttribute(cluster, attr, handler)
     }
 
+	/**
+	 * Read one or more attributes from a specific cluster.
+	 * This is a public method.
+	 *
+	 * @public
+	 * @param {object|string} cluster - The cluster object (containing NAME) or the cluster name string.
+	 * @param {string|string[]} attr - The attribute name or an array of attribute names to read.
+	 * @param {function} handler - Callback function invoked with the attribute values object.
+	 * @returns {Promise<void>}
+	 * @example
+	 * this.readAttribute(CLUSTER.BASIC, 'swBuildId', (value) => {
+	 *   this.log(value.swBuildId);
+	 * });
+	 */
 	async readAttribute(cluster, attr, handler) {
 		if ("NAME" in cluster)
 			cluster = cluster.NAME;
-		if (!attr instanceof Array) {
+		if (!Array.isArray(attr)) {
 			attr = [ attr ];
 		}
 		try {
-			this.log("Ask attribute", attr);
+			if (process.env.DEBUG === "1") {
+				this.log("Ask attribute", attr);
+			}
 			this.zclNode.endpoints[1].clusters[cluster]
 				.readAttributes(...attr)
 				.then((value) => {			
-					this.log("Got attr", attr, value);
+					if (process.env.DEBUG === "1") {
+						this.log("Got attr", attr, value);
+					}
 					handler(value);
 				})
-				.catch((e) => {			
-					this.error("Error read attr", attr);
+				.catch((e) => {
+					// Attribute may not be supported by this device; log only in debug mode.
+					if (process.env.DEBUG === "1") {
+						this.log("Attribute not found or device unavailable:", attr, e.message);
+					}
 				});
 		} catch (error) {
 			this.error('Error (2) read', attr, error);
@@ -112,15 +179,21 @@ class SonoffBase extends ZigBeeDevice {
 			}
 
 			if (!Object.keys(items).length) {
-				this.log("Write attribute", {});
+				if (process.env.DEBUG === "1") {
+					this.log("Write attribute", {});
+				}
 				return;
 			}
 
-			this.log("Write attributes sequentially", items);
+			if (process.env.DEBUG === "1") {
+				this.log("Write attributes sequentially", items);
+			}
 			const results = [];
 			for (const [key, value] of Object.entries(items)) {
 				try {
-					this.log(`Writing single attribute: { ${key}: ${value} }`);
+					if (process.env.DEBUG === "1") {
+						this.log(`Writing single attribute: { ${key}: ${value} }`);
+					}
 					const res = await clust.writeAttributes({ [key]: value });
 					results.push(res);
 				} catch (err) {

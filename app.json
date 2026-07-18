@@ -36,7 +36,7 @@
     "ko": "집에 생명을 불어넣다"
   },
   "category": "lights",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "compatibility": ">=5.0.0",
   "author": {
     "name": "Håkan Åkerberg",
@@ -686,7 +686,7 @@
                 "it": "Durata (secondi)"
               },
               "value": 28,
-              "min": 0.5,
+              "min": 0,
               "max": 3599.5,
               "step": 0.5
             }
@@ -755,7 +755,35 @@
             }
           ]
         }
-      ]
+      ],
+      "firmwareUpdates": {
+        "updates": [
+          {
+            "changelog": {
+              "en": "Update firmware to version 1.0.7",
+              "it": "Aggiornamento firmware alla versione 1.0.7"
+            },
+            "device": {
+              "manufacturerName": [
+                "SONOFF"
+              ],
+              "productId": [
+                "MINI-ZB2GS"
+              ]
+            },
+            "files": [
+              {
+                "fileVersion": 4103,
+                "imageType": 68,
+                "manufacturerCode": 4742,
+                "size": 297974,
+                "name": "mini-zb2gs_v1.0.7.ota",
+                "integrity": "sha512:7389631847f6b78573a14ac370ab19cf760c0efc3727cb1aa30664e9c18064d707cd6224a019f48032614f49bee84f2b1cc34ade46793341f31fdc32bcb923cf"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "platforms": [
@@ -972,7 +1000,7 @@
                 "it": "Durata (secondi)"
               },
               "value": 28,
-              "min": 0.5,
+              "min": 0,
               "max": 3599.5,
               "step": 0.5
             }
@@ -1747,7 +1775,35 @@
             }
           ]
         }
-      ]
+      ],
+      "firmwareUpdates": {
+        "updates": [
+          {
+            "changelog": {
+              "en": "Update firmware to version 2.3.0",
+              "it": "Aggiornamento firmware alla versione 2.3.0"
+            },
+            "device": {
+              "manufacturerName": [
+                "SONOFF"
+              ],
+              "productId": [
+                "SNZB-02D"
+              ]
+            },
+            "files": [
+              {
+                "fileVersion": 8960,
+                "imageType": 2053,
+                "manufacturerCode": 4742,
+                "size": 264118,
+                "name": "snzb-02d_v2.3.0.ota",
+                "integrity": "sha512:1ff8bc7d3d38adc87b4b2050fc6241efdd989c6410b6a73f6f8dde999450f9468bc08ca62f7223adc61a2d655a746c257002af4c2c36f3c089c182cc4a58aaea"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "platforms": [
@@ -2023,7 +2079,35 @@
             }
           ]
         }
-      ]
+      ],
+      "firmwareUpdates": {
+        "updates": [
+          {
+            "changelog": {
+              "en": "Update firmware to version 2.2.0",
+              "it": "Aggiornamento firmware alla versione 2.2.0"
+            },
+            "device": {
+              "manufacturerName": [
+                "eWeLink"
+              ],
+              "productId": [
+                "SNZB-02P"
+              ]
+            },
+            "files": [
+              {
+                "fileVersion": 8704,
+                "imageType": 2055,
+                "manufacturerCode": 4742,
+                "size": 260018,
+                "name": "snzb-02p_v2.2.0.ota",
+                "integrity": "sha512:4a8acf7ab76e2e193e816956c01ec8aebf34455b62240b3cefa856262cce760ca13b0010fa2570553dd6ce8a022ce534d2a6cb28384de34ef5c11f7020e1c8ff"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "platforms": [
@@ -2461,6 +2545,34 @@
             "en": "Press button inside device for aprox 10 seconds until the red LED start blinking."
           }
         }
+      },
+      "firmwareUpdates": {
+        "updates": [
+          {
+            "changelog": {
+              "en": "Update firmware to version 1.0.2",
+              "it": "Aggiornamento firmware alla versione 1.0.2"
+            },
+            "device": {
+              "manufacturerName": [
+                "SONOFF"
+              ],
+              "productId": [
+                "SNZB-05P"
+              ]
+            },
+            "files": [
+              {
+                "fileVersion": 4098,
+                "imageType": 2059,
+                "manufacturerCode": 4742,
+                "size": 267632,
+                "name": "snzb-05p_v1.0.2.ota",
+                "integrity": "sha512:bb64ae86d9ac2dc398d4520f97554515990ecef5568eebdaa7cdb2be19fe2471b35f53583adc8d8e9e70189a90add27556581bca444690155972ffa6b341b81e"
+              }
+            ]
+          }
+        ]
       }
     },
     {
@@ -2648,7 +2760,35 @@
             }
           ]
         }
-      ]
+      ],
+      "firmwareUpdates": {
+        "updates": [
+          {
+            "changelog": {
+              "en": "Update firmware to version 1.0.5",
+              "it": "Aggiornamento firmware alla versione 1.0.5"
+            },
+            "device": {
+              "manufacturerName": [
+                "SONOFF"
+              ],
+              "productId": [
+                "SNZB-06P"
+              ]
+            },
+            "files": [
+              {
+                "fileVersion": 4101,
+                "imageType": 2060,
+                "manufacturerCode": 4742,
+                "size": 258206,
+                "name": "snzb-06p_v1.0.5.ota",
+                "integrity": "sha512:fdcd4e238b25a971d79746a0305e185567e027c3ba08ed42ac7ca003601c25ccce497fd1f8e6ede1e0e7b058768bc2daf3ebc985174fc6265a9df4acc4f81467"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "platforms": [
@@ -2757,7 +2897,35 @@
             }
           ]
         }
-      ]
+      ],
+      "firmwareUpdates": {
+        "updates": [
+          {
+            "changelog": {
+              "en": "Update firmware to version 1.4.4",
+              "it": "Aggiornamento firmware alla versione 1.4.4"
+            },
+            "device": {
+              "manufacturerName": [
+                "SONOFF"
+              ],
+              "productId": [
+                "TRVZB"
+              ]
+            },
+            "files": [
+              {
+                "fileVersion": 5124,
+                "imageType": 8199,
+                "manufacturerCode": 4742,
+                "size": 332220,
+                "name": "trvzb_v1.4.4.ota",
+                "integrity": "sha512:c7640e2a238ab9807b77d36abc4b9e58d64c99a8fe8ac8d6246f48760bc85a2aec5c446630c94dd2e85fe3fe088011eccc992e543183b74ede7e061ae6f324b3"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "platforms": [
@@ -2940,7 +3108,35 @@
             }
           ]
         }
-      ]
+      ],
+      "firmwareUpdates": {
+        "updates": [
+          {
+            "changelog": {
+              "en": "Update firmware to version 1.1.1",
+              "it": "Aggiornamento firmware alla versione 1.1.1"
+            },
+            "device": {
+              "manufacturerName": [
+                "SONOFF"
+              ],
+              "productId": [
+                "ZBMINI-L"
+              ]
+            },
+            "files": [
+              {
+                "fileVersion": 4353,
+                "imageType": 1,
+                "manufacturerCode": 4742,
+                "size": 131086,
+                "name": "86-0001-00001101.zigbee",
+                "integrity": "sha512:b136d2656ea1197ae84f5e9c2244a9d9697bccab2c448324d9176bac791aff0161afc73c8a1574bbd51c0ea2e318840ca58a0a99da32669d3e5fc776bdf3473a"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "platforms": [
@@ -3034,7 +3230,35 @@
             }
           ]
         }
-      ]
+      ],
+      "firmwareUpdates": {
+        "updates": [
+          {
+            "changelog": {
+              "en": "Update firmware to version 1.0.14",
+              "it": "Aggiornamento firmware alla versione 1.0.14"
+            },
+            "device": {
+              "manufacturerName": [
+                "SONOFF"
+              ],
+              "productId": [
+                "ZBMINIL2"
+              ]
+            },
+            "files": [
+              {
+                "fileVersion": 4110,
+                "imageType": 4,
+                "manufacturerCode": 4742,
+                "size": 259018,
+                "name": "zigbeeminil2_100E_stand_ota_file.ota",
+                "integrity": "sha512:c80d29e84e3019a84f7a3bdb3e84a3b462e2516c7de5120cdbb68a0e474fcb8b1c5d8eb79b204ad2d9c5af2bed4e544588b192b7884d493a11f82d4ac8625177"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "platforms": [
@@ -3250,7 +3474,7 @@
                 "it": "Durata (secondi)"
               },
               "value": 28,
-              "min": 0.5,
+              "min": 0,
               "max": 3599.5,
               "step": 0.5
             }
@@ -3319,7 +3543,35 @@
             }
           ]
         }
-      ]
+      ],
+      "firmwareUpdates": {
+        "updates": [
+          {
+            "changelog": {
+              "en": "Update firmware to version 1.0.8",
+              "it": "Aggiornamento firmware alla versione 1.0.8"
+            },
+            "device": {
+              "manufacturerName": [
+                "SONOFF"
+              ],
+              "productId": [
+                "ZBMINIR2"
+              ]
+            },
+            "files": [
+              {
+                "fileVersion": 4104,
+                "imageType": 8,
+                "manufacturerCode": 4742,
+                "size": 277180,
+                "name": "zbminir2_v1.0.8.ota",
+                "integrity": "sha512:051912851dffed4b49d3caece8d67b0fec9987dcbdf4d6db45c4e23f4ea0c9be867491758af12f153bc9672d4205129a9270be79e781d150734be295c44971bf"
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "capabilities": {

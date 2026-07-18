@@ -1,0 +1,28 @@
+{
+  "updates": [
+    {
+      "changelog": {
+        "en": "Update firmware to version 2.3.0",
+        "it": "Aggiornamento firmware alla versione 2.3.0"
+      },
+      "device": {
+        "manufacturerName": [
+          "SONOFF"
+        ],
+        "productId": [
+          "SNZB-02D"
+        ]
+      },
+      "files": [
+        {
+          "fileVersion": 8960,
+          "imageType": 2053,
+          "manufacturerCode": 4742,
+          "size": 264118,
+          "name": "snzb-02d_v2.3.0.ota",
+          "integrity": "sha512:1ff8bc7d3d38adc87b4b2050fc6241efdd989c6410b6a73f6f8dde999450f9468bc08ca62f7223adc61a2d655a746c257002af4c2c36f3c089c182cc4a58aaea"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "updates": [
+    {
+      "changelog": {
+        "en": "Update firmware to version 1.1.1",
+        "it": "Aggiornamento firmware alla versione 1.1.1"
+      },
+      "device": {
+        "manufacturerName": [
+          "SONOFF"
+        ],
+        "productId": [
+          "ZBMINI-L"
+        ]
+      },
+      "files": [
+        {
+          "fileVersion": 4353,
+          "imageType": 1,
+          "manufacturerCode": 4742,
+          "size": 131086,
+          "name": "86-0001-00001101.zigbee",
+          "integrity": "sha512:b136d2656ea1197ae84f5e9c2244a9d9697bccab2c448324d9176bac791aff0161afc73c8a1574bbd51c0ea2e318840ca58a0a99da32669d3e5fc776bdf3473a"
+        }
+      ]
+    }
+  ]
+}

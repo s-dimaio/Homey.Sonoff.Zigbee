@@ -80,3 +80,6 @@ interview.json
 INSTALL.md
 *.code-workspace
 log_avvio.txt
+
+# Ignore local OTA script folder
+/ota/

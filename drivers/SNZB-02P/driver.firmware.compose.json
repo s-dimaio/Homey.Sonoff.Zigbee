@@ -1,0 +1,28 @@
+{
+  "updates": [
+    {
+      "changelog": {
+        "en": "Update firmware to version 2.2.0",
+        "it": "Aggiornamento firmware alla versione 2.2.0"
+      },
+      "device": {
+        "manufacturerName": [
+          "eWeLink"
+        ],
+        "productId": [
+          "SNZB-02P"
+        ]
+      },
+      "files": [
+        {
+          "fileVersion": 8704,
+          "imageType": 2055,
+          "manufacturerCode": 4742,
+          "size": 260018,
+          "name": "snzb-02p_v2.2.0.ota",
+          "integrity": "sha512:4a8acf7ab76e2e193e816956c01ec8aebf34455b62240b3cefa856262cce760ca13b0010fa2570553dd6ce8a022ce534d2a6cb28384de34ef5c11f7020e1c8ff"
+        }
+      ]
+    }
+  ]
+}

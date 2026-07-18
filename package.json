@@ -1,6 +1,9 @@
 {
   "name": "se.styrahem.sonoff.zigbee",
   "version": "1.9.0",
+  "scripts": {
+    "update-ota": "node ota/update-ota.js"
+  },
   "dependencies": {
     "homey-rfdriver": "^3.3.2",
     "homey-zigbeedriver": "^1.6.2",

@@ -112,5 +112,9 @@
   },
   "1.9.0": {
     "en": "Improved stability and reliability for MINI-ZB2GS and MINI-ZB2GS-L dual-channel devices, including better status synchronization and support for 'Detach Relay' mode. Enhanced internal communication logic for all Sonoff Zigbee devices."
+  },
+  "1.10.0": {
+    "en": "Added support for OTA firmware updates for compatible Zigbee devices.",
+    "it": "Aggiunto il supporto agli aggiornamenti firmware OTA per i dispositivi Zigbee compatibili."
   }
 }

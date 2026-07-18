@@ -1,0 +1,28 @@
+{
+  "updates": [
+    {
+      "changelog": {
+        "en": "Update firmware to version 1.0.7",
+        "it": "Aggiornamento firmware alla versione 1.0.7"
+      },
+      "device": {
+        "manufacturerName": [
+          "SONOFF"
+        ],
+        "productId": [
+          "MINI-ZB2GS"
+        ]
+      },
+      "files": [
+        {
+          "fileVersion": 4103,
+          "imageType": 68,
+          "manufacturerCode": 4742,
+          "size": 297974,
+          "name": "mini-zb2gs_v1.0.7.ota",
+          "integrity": "sha512:7389631847f6b78573a14ac370ab19cf760c0efc3727cb1aa30664e9c18064d707cd6224a019f48032614f49bee84f2b1cc34ade46793341f31fdc32bcb923cf"
+        }
+      ]
+    }
+  ]
+}

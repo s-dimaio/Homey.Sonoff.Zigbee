@@ -1,0 +1,28 @@
+{
+  "updates": [
+    {
+      "changelog": {
+        "en": "Update firmware to version 1.0.5",
+        "it": "Aggiornamento firmware alla versione 1.0.5"
+      },
+      "device": {
+        "manufacturerName": [
+          "SONOFF"
+        ],
+        "productId": [
+          "SNZB-06P"
+        ]
+      },
+      "files": [
+        {
+          "fileVersion": 4101,
+          "imageType": 2060,
+          "manufacturerCode": 4742,
+          "size": 258206,
+          "name": "snzb-06p_v1.0.5.ota",
+          "integrity": "sha512:fdcd4e238b25a971d79746a0305e185567e027c3ba08ed42ac7ca003601c25ccce497fd1f8e6ede1e0e7b058768bc2daf3ebc985174fc6265a9df4acc4f81467"
+        }
+      ]
+    }
+  ]
+}
